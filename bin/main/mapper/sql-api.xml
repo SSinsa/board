@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="board.api.mapper.NonPaymentCodeMapper">
+	<insert id="insertNonPaymentCode" parameterType="board.api.dto.NonPaymentCodeDto">
+		<![CDATA[ 
+			INSERT INTO nonpaymentitemcode
+			(
+				div_cd1,
+				div_cd1_nm,
+				div_cd1_dsc,
+				div_cd2,
+				div_cd2_nm,
+				div_cd2_dsc, 
+				div_cd3,
+				div_cd3_nm,
+				div_cd3_dsc	
+			)
+			VALUES
+			(
+				#{divCd1},
+				#{divCd1Nm},
+				#{divCd1Dsc},
+				#{divCd2},
+				#{divCd2Nm},
+				#{divCd2Dsc},
+				#{divCd3},
+				#{divCd3Nm},
+				#{divCd3Dsc}
+				
+			)
+		]]>
+	</insert>
+	<select id="selectNonPaymentCodeList" resultType="board.api.dto.NonPaymentCodeDto"> 
+	<![CDATA[
+		SELECT
+			div_cd1,
+			div_cd1_nm,
+			div_cd1_dsc,
+			div_cd2,
+			div_cd2_nm,
+			div_cd2_dsc, 
+			div_cd3,
+			div_cd3_nm,
+			div_cd3_dsc	
+		FROM
+			nonpaymentitemcode
+		GROUP BY 
+			div_cd1
+	]]>
+	</select>
+</mapper>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>board</title>
+	<link rel="stylesheet" th:href="@{/css/jquery.treefilter.css}"></link>
+</head>
+<body>
+<h1>비급여항목코드 검색</h1>
+<div class="container">
+	<input type="search" id="my-search" placeholder="search">
+	<ul id="my-tree" th:each="list : ${list}">
+		<li><div th:text="${list.divCd1Nm}"></div>
+			
+		</li>
+	</ul>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="/js/jquery.treefilter.js"></script>
+<script>
+$(function() {
+
+	var tree = new treefilter($("#my-tree"), {
+		searcher : $("input#my-search"),
+		multiselect : false
+	});
+});
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</html>
